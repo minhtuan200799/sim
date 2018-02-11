@@ -1,0 +1,462 @@
+<!-- BEGIN: main -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>{SITE_TITLE}</title>
+
+    <link rel="shortcut icon" href="{BASE_URL}favicon.ico" type="image/x-icon"/>
+    <meta name="copyright" content="{SITE_COPYRIGHTS}" />
+    <meta name="description" content="{SITE_DESCRIPTION}"/>
+    <meta name="keywords" content="{SITE_KEY}"/>
+
+    <meta property="og:url"           content="{LINK_SHARE}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="{SITE_TITLE}" />
+    <meta property="og:description"   content="{SITE_DESCRIPTION}" />
+    <meta property="og:image"         content="{DETAIL_IMAGE}" />
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="main-menu">
+    <div class="limit-width">
+        <a href="{MN_HOME}"><img src="images/home.png" alt="" align="absmiddle"></a>&nbsp;|&nbsp;<a href="{MN_INTRO}">Giới thiệu</a>&nbsp;|&nbsp;<a href="{MN_PRIVACY}">Quy định</a>&nbsp;|&nbsp;<a href="{MN_CONTACT}">Liên hệ</a>
+    </div>
+</div>
+
+<!-- BEGIN: menu_left -->
+<div class="cate-menu">
+    <div class="wrapper limit-width">
+        <div class="row">
+            <!-- BEGIN: cate -->
+            <div class="col-1-4">
+                <a href="{LINK}">{NAME} <span>({COUNT})</span></a>
+            </div>
+            <!-- END: cate -->
+        </div>
+    </div>
+</div>
+<!-- END: menu_left -->
+<div class="content">
+    <div class="limit-width">
+    <!-- BEGIN: logo_vertical -->
+    <div id="logo-vertical">
+        <div><a href="{BASE_URL}"><img src="images/ng-logo.png" alt=""></a></div>
+        <form action="{PAGE_SEARCH}" method="get">
+            <input type="text" name="q" value="{SEARCH_Q}">
+            <input type="submit" id="btnSearch" value=" " >
+        </form>
+        <!-- BEGIN: post -->
+        <div><a href="{PAGE_POST}" ><img src="images/dang-tin.png" alt=""></a></div>
+        <!-- END: post -->
+    </div>
+    <!-- END: logo_vertical -->
+
+    <!-- BEGIN: logo_detail -->
+    <div id="logo-horizontal">
+        <div class="logo"><a href="{BASE_URL}"><img src="images/ng-logo-s.png" alt=""></a></div>
+
+        <div class="detail_search">
+            <form action="{PAGE_SEARCH}" method="get">
+                <input type="text" name="q" value="{SEARCH_Q}">
+                <input type="submit" id="btnSearch" value=" " >
+            </form>
+            <div id="dangTin"><a href="{PAGE_POST}" ><img src="images/dang-tin.png" alt=""></a></div>
+        </div>
+    </div>
+    <!-- END: logo_detail -->
+
+    <!-- BEGIN: post_completed -->
+    <script type="text/javascript">
+        function startTimer(duration) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                document.querySelector('#countDown').textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    location.reload();
+                }
+            }, 1000);
+        }
+        var countDown = parseInt("{timer_register}", 10);
+        startTimer(countDown);
+    </script>
+    <div class="post-completed">
+        <p>Chúc mừng bạn đã đăng tin thành công!<br>
+            <span>Thời gian đăng tin tiếp theo</span><br>
+        <div id="countDown"></div>
+        </p>
+
+        <p>Chia sẻ TIN của bạn lên Facebook</p>
+        <script type="text/javascript">
+            //setTimeout(function(){ location.reload(); }, 25000);
+
+            function showFeedback(){
+                document.getElementById("viewFeedBack").style.display = "block";
+                document.getElementById('reportArea').focus();
+            }
+            function hideFeedback(){
+                document.getElementById("viewFeedBack").style.display = "none";
+            }
+            function submitReport()
+            {
+                var typeLanguage = document.getElementById("typeLanguage").checked;
+                var typePicture = document.getElementById("typePicture").checked;
+                var typePolitic = document.getElementById("typePolitic").checked;
+                var typeLaw = document.getElementById("typeLaw").checked;
+                var reportArea = document.getElementById("reportArea").value;
+
+                if(!typeLanguage && !typePicture && !typePolitic && !typeLaw && !reportArea){
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
+
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <div class="fb-like" data-layout="button_count"></div>
+        <div class="fb-share-button" data-href="{LINK_SHARE}" data-layout="button_count"></div>
+        <br>
+
+        <a href="{LINK_DETAIL}">Bạn có muốn xem lại tin vừa đăng?</a>
+        <br><a href="{LINK_IMAGES}">Bạn có muốn thêm hình ảnh cho tin vừa đăng?</a>
+    </div>
+    <!-- END: post_completed -->
+
+    <!-- BEGIN: post -->
+    <form action="{PAGE_POST}" method="post">
+        <table class="cate post" width="100%" cellspacing="0">
+            <tr>
+                <td>
+                    <p>Bước 1</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Chọn mục bạn muốn đăng</p>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <div id="post1_error">{ERROR_TEXT}</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- BEGIN: cate -->
+                    <label><input type="radio" name="cate" value="{CATE_ID}" {SELECTED}/> {CATE_NAME} <i>{CATE_DESCRIPTION}</i></label>
+                    <!-- END: cate -->
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <p><input type="submit" id="tiepTuc" name="post" value=" "></p>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <!-- END: post -->
+
+    <!-- BEGIN: post02 -->
+    <form action="{PAGE_POST_2}" method="post" enctype="multipart/form-data">
+        <table class="cate post" width="100%" cellspacing="0">
+            <tr>
+                <td>
+                    <p>Bước 2</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Thông tin chi tiết</p>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <div id="showError" style="color: red;">{ERROR}</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Điện thoại liên lạc</p>
+                    <input type="text" name="post_phone" id="post_phone" maxlength="11" value="{POST_PHONE}">
+                    <label style="float: none; margin-left: 60px; font-weight: normal;"><input type="radio" name="post_phone_time" value="" checked="checked" onchange="showNote(1);"> Vĩnh viễn</label>
+                    <label style="float: none; font-weight: normal;"><input type="radio" name="post_phone_time" value="60" onchange="showNote(2);" > 60 ngày</label>
+                    <label style="float: none; font-weight: normal;"><input type="radio" name="post_phone_time" value="60" onchange="showNote(3);" > 30 ngày</label>
+                    <br>
+                    <div class="post_note" id="msg1"> * Sô điện thoại sẽ không tự <span>xóa vĩnh viễn</span>.<br></div>
+                    <div class="post_note" id="msg2" style="display: none;"> * Sô điện thoại sẽ tự <span>xóa</span> trong vòng <span>60 ngày</span> tránh trường hợp khách hàng vẫn liên lạc sau khi hàng đã bán.<br></div>
+                    <div class="post_note" id="msg3" style="display: none;"> * Sô điện thoại sẽ tự <span>xóa</span> trong vòng <span>30 ngày</span> tránh trường hợp khách hàng vẫn liên lạc sau khi hàng đã bán.<br></div>
+
+                    <p>Nơi giao dịch</p>
+                    <select name="post_place" id="post_place">
+                        <option value="">-- Chọn nơi giao dịch--</option>
+                        {PLACE_SELECT}
+                    </select>
+                    <div class="post_note"> * Nếu chọn <span>Thỏa thuận</span>: Xin vui lòng điền chi tiết các tỉnh thành có thể giao dịch bên dưới phần <span>Nội dung</span>.</div>
+
+                    <p>Tiêu đề <i>(<span id="title_maxlength">{TITLE_MAX_LENGTH}</span> ký tự)</i></p>
+                    <input type="text" name="post_title" id="post_title" maxlength="{TITLE_MAX_LENGTH}" value="{POST_TITLE}" onKeyUp="title_len();"><br>
+
+                    <p>Nội dung <i>(<span id="post_maxlength">{POST_MAX_LENGTH}</span> ký tự)</i></p>
+                    <textarea name="post_description" id="post_description" onKeyUp="post_len();">{POST_DESCRIPTION}</textarea>
+
+                    <p id="post_img">Đính kèm hình ảnh <br>
+                        <!-- BEGIN: file_upload -->
+                        <div class="filePost">
+                            <input type="file" id="post_img_{INDEX}" onchange="showComment(this);"  name="post_img_{INDEX}" accept="image/x-png, image/gif, image/jpeg" />
+                            <input type="text" name="img_comment_{INDEX}" class="input-post" id="cpost_img_{INDEX}" maxlength="{TITLE_MAX_LENGTH}" value="Ghi chú hình" onblur="if(this.value == '') this.value ='Ghi chú hình';" onfocus="if(this.value == 'Ghi chú hình') this.value ='';" />
+                        </div>
+                        <!-- END: file_upload -->
+                    </p>
+
+
+                    <script type="text/javascript">
+                        var timer_refresh = parseInt("{timer_refresh}", 10);
+                        var post_maxlength = document.getElementById("post_maxlength").innerHTML;
+                        var title_maxlength = document.getElementById("title_maxlength").innerHTML;
+                        var timerRefresh;
+                        var refreshCount = (timer_refresh < 10)?10:timer_refresh;
+
+                        function showNote(note)
+                        {
+                            document.getElementById("msg1").style.display = 'none';
+                            document.getElementById("msg2").style.display = 'none';
+                            document.getElementById("msg3").style.display = 'none';
+
+                            switch (note)
+                            {
+                                case 1: document.getElementById("msg1").style.display = 'block'; break;
+                                case 2: document.getElementById("msg2").style.display = 'block'; break;
+                                case 3: document.getElementById("msg3").style.display = 'block'; break;
+                            }
+                        }
+                        function showComment(me)
+                        {
+                            document.getElementById("c" + me.id).style.display = 'block';
+                        }
+
+                        function loadCaptcha() {
+                            var xhttp = new XMLHttpRequest();
+                            xhttp.onreadystatechange = function() {
+                                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                                    document.getElementById("captchaIMG").innerHTML = xhttp.responseText;
+                                    RefreshTimer();
+                                }
+                            }
+                            xhttp.open("GET", "{CAPTCHA_REFRESH}", true);
+                            xhttp.send();
+                        }
+
+                        function RefreshTimer() {
+
+                            if(refreshCount < 0){
+                                refreshCount = timer_refresh;
+                                clearTimeout(timerRefresh);
+                                loadCaptcha();
+                                return;
+                            }
+
+                            if(refreshCount == 10) {
+                                document.getElementById("timerReminder").innerHTML = refreshCount;
+                            }else {
+                                document.getElementById("timerReminder").innerHTML = "0" + refreshCount;
+                            }
+
+                            refreshCount--;
+                            timerRefresh = setTimeout(RefreshTimer, 1000);
+                        }
+
+                        function title_len (){
+                            var post_title = document.getElementById("post_title").value;
+                            var relent = parseInt(title_maxlength, 10) - post_title.length;
+                            document.getElementById("title_maxlength").innerHTML = relent;
+                            if(relent <= 0){
+                                document.getElementById("post_title").value = post_title.substring(0, title_maxlength );
+                                document.getElementById("title_maxlength").innerHTML = 0;
+                            }
+                        }
+
+                        function post_len (){
+                            var post_description = document.getElementById("post_description").value;
+                            var relent = parseInt(post_maxlength, 10) - post_description.length;
+                            document.getElementById("post_maxlength").innerHTML = relent;
+                            if(relent <= 0){
+                                document.getElementById("post_description").value = post_description.substring(0, post_maxlength );
+                                document.getElementById("post_maxlength").innerHTML = 0;
+                            }
+                        }
+
+                        function close_popup()
+                        {
+                            document.getElementById("popup").style.display = 'none';
+                        }
+                        function check_form(review)
+                        {
+                            var innerHTML = "";
+                            var max_title = parseInt("{TITLE_MAX_LENGTH}", 10);
+                            var max_post = parseInt("{POST_MAX_LENGTH}", 10);
+                            var post_phone = document.getElementById("post_phone").value;
+                            var post_place = document.getElementById("post_place").value;
+                            var post_title = document.getElementById("post_title").value;
+                            var post_description = document.getElementById("post_description").value;
+                            var review = (review) ? "REVIEW" : "NOEW";
+
+                            document.getElementById("post_review").value = review;
+
+
+
+                            if(!post_phone || post_phone.length > 11 || post_phone.length < 8)
+                            {
+                                innerHTML += "Vui lòng nhập lại Số điện thoại.<br>";
+                            }
+
+                            if(!post_place || post_place.length == 0)
+                            {
+                                innerHTML += "Vui lòng chọn Nơi giao dịch.<br>";
+                            }
+
+                            if(!post_title || post_title.length > max_title || post_title.length < 8)
+                            {
+                                innerHTML += "Vui lòng nhập lại Tiêu đề (giới hạn từ 8 đến " + max_title + ")<br>";
+                            }
+
+                            if(!post_description || post_description.length > max_post || post_description.length < 8)
+                            {
+                                innerHTML += "Vui lòng nhập lại Nội dung (giới hạn từ 8 đến " + max_post + ")<br>";
+                            }
+
+                            document.getElementById("showError").innerHTML = "";
+
+                            if(innerHTML.length > 1){
+                                document.getElementById("showError").innerHTML = innerHTML;
+                                window.scrollTo(0, 0);
+                                return false;
+                            }
+
+                            loadCaptcha();
+                            document.getElementById("popup").style.display = 'block';
+                            return true;
+                        }
+                    </script>
+
+                    <div class="popup" id="popup">
+                        <div class="popup_content">
+                            <input type="hidden" name="post_review" id="post_review" value="NOW">
+                            <input type="hidden" name="post_hidden_img" id="post_hidden_img" value="{POST_HIDDEN_IMG}">
+                            <img id="btnClose" src="images/btn-close.png" alt="" onclick="close_popup();">
+                            <div id="timerReminder">10</div>
+                            <p>MÃ XÁC THỰC</p>
+                            <div id="captcha"><input type="text" name="captcha" ><span id="captchaIMG"></span></div>
+                            <input type="submit" name="btnHoanTat" id="btnHoanTat" value=" ">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <p id="postButton">
+                        <input type="image" src="images/buoc-1.png" name="btnBuoc1" value="Buoc 1">
+                        <input type="image" src="images/xem-lai.png" name="btnXemLai" value="Xem lai" onclick="check_form(true); return false;">
+                        <input type="image" src="images/dang-ngay.png" name="btnDangNgay" value="Dang ngay" onclick="check_form(false); return false;">
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+    <!-- END: post02 -->
+
+    <!-- BEGIN: post_images -->
+    <form method="post" enctype="multipart/form-data">
+        <table class="cate post" width="100%" cellspacing="0">
+            <tr>
+                <td>
+                    <p>Bước 3</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Thêm hình ảnh</p>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <div id="showError" style="color: red;">{ERROR}</div>
+                </td>
+            </tr>
+            <!-- BEGIN: row -->
+            <tr id="detailImage">
+                <td align="center">
+                    <img src="{DETAIL_IMAGE}" alt="">
+                    <br><br><a href="{LINK_DELETE_IMAGE}" onclick="return confirm('Bạn có thực sự muốn xóa không?');">Xóa hình này?</a>
+                </td>
+            </tr>
+            <!-- END: row -->
+            <tr>
+                <td>
+                    <p id="post_img">Thêm hình ảnh <input type="file"  name="post_img" accept="image/x-png, image/gif, image/jpeg" ></p>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <p>
+                        <input type="submit" id="btnHoanTat" name="btnHoanTat" value=" ">
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+    <!-- END: post_images -->
+    </div>
+</div>
+
+<!-- BEGIN: analysis -->
+<div class="footer">
+    <div class="footer-container limit-width">
+        <div class="footer-right">
+            <div class="view-day">
+                <div>Truy cập trong ngày</div><div>:</div><div>{Visitor_day}</div>
+            </div>
+            <div class="view-month">
+                <div>Truy cập trong tháng</div><div>:</div><div>{Visitor_month}</div>
+            </div>
+            <div class="view-total">
+                <div>Tổng số truy cập</div><div>:</div><div>{Visitor}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: analysis -->
+
+<!-- BEGIN: google_analysis -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-70174030-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<!-- END: google_analysis -->
+</body>
+</html>
+<!-- END: main -->

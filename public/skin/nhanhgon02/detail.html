@@ -1,0 +1,393 @@
+<!-- BEGIN: main -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>{SITE_TITLE}</title>
+
+    <link rel="shortcut icon" href="{BASE_URL}favicon.ico" type="image/x-icon"/>
+    <meta name="copyright" content="{SITE_COPYRIGHTS}" />
+    <meta name="description" content="{SITE_DESCRIPTION}"/>
+    <meta name="keywords" content="{SITE_KEY}"/>
+
+    <meta property="og:url"           content="{LINK_SHARE}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="{SITE_TITLE}" />
+    <meta property="og:description"   content="{SITE_DESCRIPTION}" />
+    <meta property="og:image"         content="{DETAIL_IMAGE}" />
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="main-menu">
+    <div class="limit-width">
+        <a href="{MN_HOME}"><img src="images/home.png" alt="" align="absmiddle"></a>&nbsp;|&nbsp;<a href="{MN_INTRO}">Giới thiệu</a>&nbsp;|&nbsp;<a href="{MN_PRIVACY}">Quy định</a>&nbsp;|&nbsp;<a href="{MN_CONTACT}">Liên hệ</a>
+    </div>
+</div>
+
+<!-- BEGIN: menu_left -->
+<div class="cate-menu">
+    <div class="wrapper limit-width">
+        <div class="row">
+            <!-- BEGIN: cate -->
+            <div class="col-1-4">
+                <a href="{LINK}">{NAME} <span>({COUNT})</span></a>
+            </div>
+            <!-- END: cate -->
+        </div>
+    </div>
+</div>
+<!-- END: menu_left -->
+
+<div class="content">
+<div class="limit-width">
+<!-- BEGIN: logo_detail -->
+<div id="logo-horizontal">
+    <div class="logo"><a href="{BASE_URL}"><img src="images/ng-logo-s.png" alt=""></a></div>
+
+    <div class="detail_search">
+        <form action="{PAGE_SEARCH}" method="get">
+            <input type="text" name="q" value="{SEARCH_Q}">
+            <input type="submit" id="btnSearch" value=" " >
+        </form>
+        <div id="dangTin"><a href="{PAGE_POST}" ><img src="images/dang-tin.png" alt=""></a></div>
+    </div>
+</div>
+<!-- END: logo_detail -->
+
+
+<!-- BEGIN: not_found -->
+<div class="not-found">
+    <p><h4>Bản tin mà quý khách vừa truy cập không tồn tại hoặc do các nguyên nhân sau:</h4></p>
+    <ul>
+        <li>
+            Có thể tin đăng đã quá lâu chưa được cập nhật, vui lòng xem <a href="{CATE_LINK}">tin cùng danh mục</a>.
+        </li>
+        <li>
+            Tin đăng có thể vi phạm vào một trong các điều khoản nên bị khóa, vui lòng xem <a href='{MN_PRIVACY}'>quy định đăng tin</a>.
+        </li>
+        <li>
+            Hoặc do hệ thống có sự cố, vui lòng <a href='{MN_CONTACT}'>liên hệ với chúng tôi</a>.
+        </li>
+        {OTHER_LINK}
+    </ul>
+</div>
+<!-- END: not_found -->
+
+<!-- BEGIN: detail -->
+<!-- BEGIN: report -->
+<div class="popup" id="report">
+    <div class="popup_content">
+        <img id="btnClose" src="images/btn-close.png" alt="" onclick="close_report();">
+        <div id="timerReminder">10</div>
+        <p>MÃ XÁC THỰC</p>
+        <div id="captcha"><input type="text" name="captcha" ><span id="captchaIMG"></span></div>
+        <input type="submit" name="btnHoanTat" id="btnHoanTat" value=" ">
+    </div>
+</div>
+<script type="text/javascript">
+    document.getElementById("report").style.display = 'none';
+
+    function close_report()
+    {
+        document.getElementById("report").style.display = 'none';
+    }
+</script>
+<!-- END: report -->
+
+<!-- BEGIN: convert -->
+<script type="text/javascript">
+    setTimeout(function(){ location.href = "{LINK_REFRESH}"; }, 100);
+</script>
+<!-- END: convert -->
+<table class="cate detail" width="100%" cellspacing="0">
+    <tr>
+        <td width="35"></td>
+        <td></td>
+        <td width="100"></td>
+        <td width="100"></td>
+    </tr>
+    <!-- BEGIN: detail_info -->
+    <tr id="detail_info">
+        <td colspan="4" align="left">
+            <div class="detail_info">
+                <a href="#" onclick="loadPhone(); return false;"><div id="detail_share"><img src="images/btn-load-phone.png" alt=""></div></a>
+                <div class="dti">
+                    <span>Ngày đăng</span>: <b>{DETAIL_DATE}</b><br>
+                    <span>Nơi giao dịch</span>: <b>{DETAIL_PLACE}</b><br>
+                    <span>Lượt xem</span>: <b>{DETAIL_COUNT}</b>
+                </div>
+            </div>
+
+            <div class="detail_felling">
+                <div class="popup" id="viewFeedBack">
+                    <div id="reportContainer">
+                        <img id="btnCloseFeedBack" src="images/btn-close.png" alt="" onclick="hideFeedback();">
+
+                        <form method="post">
+                            <div class="radio">
+                                <p><input type="checkbox" id="typeLanguage" name="typeLanguage" value="Language"> <label for="typeLanguage">Ngôn ngữ không phù hợp</label></p>
+                                <p><input type="checkbox" id="typePicture" name="typePicture" value="Picture"> <label for="typePicture">Hình ảnh không phù hợp</label></p>
+                            </div>
+                            <div class="radio">
+                                <p><input type="checkbox" id="typePolitic" name="typePolitic" value="Politic"> <label for="typePolitic">Nội dung liên quan đến chính trị</label></p>
+                                <p><input type="checkbox" id="typeLaw" name="typeLaw" value="Law"> <label for="typeLaw">Nội dung không phù hợp luật pháp</label></p>
+                            </div>
+                            <div class="area" onclick="document.getElementById('reportArea').focus();">
+                                <textarea id="reportArea" name="reportArea"></textarea>
+                            </div>
+
+                            <div class="thanks">
+                                Cám ơn bạn đã giúp chúng tôi phát triển một cộng đồng "mua nhanh bán gọn" lành mạnh.
+                            </div>
+                            <input type="submit" id="btnReport" name="btnReport" value=" " onclick="return submitReport();"/>
+
+                        </form>
+
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    function showFeedback(){
+                        document.getElementById("viewFeedBack").style.display = "block";
+                        document.getElementById('reportArea').focus();
+                    }
+                    function hideFeedback(){
+                        document.getElementById("viewFeedBack").style.display = "none";
+                    }
+                    function submitReport()
+                    {
+                        var typeLanguage = document.getElementById("typeLanguage").checked;
+                        var typePicture = document.getElementById("typePicture").checked;
+                        var typePolitic = document.getElementById("typePolitic").checked;
+                        var typeLaw = document.getElementById("typeLaw").checked;
+                        var reportArea = document.getElementById("reportArea").value;
+
+                        if(!typeLanguage && !typePicture && !typePolitic && !typeLaw && !reportArea){
+                            return false;
+                        }
+
+                        return true;
+                    }
+                </script>
+
+                <a href="#" onclick="showFeedback(); return false;" id="feedbackLink"><em>Mẫu tin không hợp lệ?</em></a>
+                <div id="sharePost">
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                    <div class="fb-like" data-layout="button_count"></div>
+                    <div class="fb-share-button" data-href="{LINK_SHARE}" data-layout="button_count"></div>
+
+                </div>
+            </div>
+        </td>
+    </tr>
+
+    <tr id="detail_title">
+        <td colspan="4">
+            {DETAIL_TITLE}
+        </td>
+    </tr>
+
+    <tr id="detail_content">
+        <td colspan="4">
+            {DETAIL_CONTENT}
+        </td>
+    </tr>
+
+    <!-- BEGIN: image_one -->
+    <tr id="detailImage">
+        <td colspan="4" align="center" id="detailImg">
+            <img src="{DETAIL_IMAGE}" alt="{DETAIL_TITLE}" onclick="showViewImage(this);">
+            <img id="loading" src="images/loading.gif" alt="">
+        </td>
+    </tr>
+    <!-- END: image_one -->
+
+    <!-- BEGIN: image_slide -->
+    <tr id="imageMore">
+        <td colspan="4" align="center" id="detailImg2">
+
+            <img id="imageBig" src="{DETAIL_IMAGE}" alt="{DETAIL_TITLE}" onclick="showViewImage(this);">
+            <img id="loading" src="images/loading.gif" alt="">
+            <div id="imageThumb">
+                <!-- BEGIN: image -->
+                <a class="imageClick" href="{DETAIL_IMAGE}" onclick="return changeImage(this);" title="{IMG_COMMENT}"><img src="{SMALL_IMAGE}" alt="{DETAIL_TITLE}"></a>
+                <!-- END: image -->
+            </div>
+        </td>
+    </tr>
+    <!-- END: image_slide -->
+    <!-- END: detail_info -->
+
+    <!-- BEGIN: detail_ad -->
+    <tr>
+        <td colspan="4" style="padding: 35px 0 0 0;">
+            <div  style="width: 100%; color:#0033FF; font-weight:bold; border:2px #FFCC00 dotted; padding:10px;">
+                <a href="{AD_LINK}" target="_blank">
+                    {AD_TEXT}
+                </a>
+            </div>
+        </td>
+    </tr>
+    <!-- END: detail_ad -->
+
+    <!-- BEGIN: other -->
+    <tr id="detailOther">
+        <td colspan="4" class="news-report">
+            <a href="{CATE_LINK}">{CATE_NAME}</a> : <span>{CATE_COUNT}</span>
+        </td>
+    </tr>
+    <!-- BEGIN: row -->
+    <tr>
+        <td><strong>{STT}</strong></td>
+        <td><a href="{LINK}">{TITLE}</a></td>
+        <td>{TIME}</td>
+        <td align="right">{PLACE}</td>
+    </tr>
+    <!-- END: row -->
+    <!-- END: other -->
+
+    <!-- BEGIN: back -->
+    <tr id="detailOther">
+        <td colspan="4">
+            <a href="{PAGE_POST_2}">Quay lại</a>
+        </td>
+    </tr>
+    <!-- END: back -->
+
+    <tr>
+        <td colspan="4" align="center" style="border: none;">
+            <div class="popup" id="viewOriginImage">
+                <img id="btnClose" src="images/btn-close.png" alt="" onclick="closeViewImage();">
+                <br>
+                <img id="imageOriginal" src="" alt="">
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+<script type="text/javascript">
+    function loadPhone(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                document.getElementById("detail_share").innerHTML = '<img src="' + xhttp.responseText +'" alt="">';
+            }
+        }
+        xhttp.open("GET", "{LINK_LOAD_PHONE}", true);
+        xhttp.send();
+    }
+    function changeImage(me)
+    {
+
+
+        document.getElementById('loading').style.display = "block";
+
+        var img = new Image();
+        img.src = me.href;
+        img.onload = function() {
+            document.getElementById('loading').style.display = "none";
+            document.getElementById("imageBig").src = me.href;
+        }
+
+        var cusid_ele = document.getElementsByClassName('imageClick active');
+        for (var i = 0; i < cusid_ele.length; ++i) {
+            var item = cusid_ele[i];
+            item.className = 'imageClick';
+        }
+
+        me.className = "imageClick active";
+        return false;
+    }
+    function closeViewImage()
+    {
+        document.getElementById("viewOriginImage").style.display = 'none';
+    }
+    function showViewImage(me)
+    {
+        var src = me.src;
+
+        src = src.replace("_m.", ".");
+
+        document.getElementById('loading').style.display = "block";
+
+        var img = new Image();
+        img.src = src;
+        img.onload = function() {
+            document.getElementById('loading').style.display = "none";
+            document.getElementById("imageOriginal").src = src;
+            document.getElementById("viewOriginImage").style.display = 'block';
+        }
+    }
+
+    function checkImgLoaded(img) {
+        if (!img.complete) {
+            return false;
+        }
+
+        if (typeof img.naturalWidth !== "undefined" && img.naturalWidth === 0) {
+            return false;
+        }
+
+        return true;
+    }
+    document.onclick = function(event){
+        for(var node = event.target; node != document.body; node = node.parentNode)
+        {
+            if(node.id == 'imageOriginal'){
+                return;
+            }
+            if(node.id == 'viewOriginImage'){
+                closeViewImage();
+                break;
+            }
+        }
+    }
+
+
+</script>
+<!-- END: detail -->
+</div>
+</div>
+
+<!-- BEGIN: analysis -->
+<div class="footer">
+    <div class="footer-container limit-width">
+        <div class="footer-right">
+            <div class="view-day">
+                <div>Truy cập trong ngày</div><div>:</div><div>{Visitor_day}</div>
+            </div>
+            <div class="view-month">
+                <div>Truy cập trong tháng</div><div>:</div><div>{Visitor_month}</div>
+            </div>
+            <div class="view-total">
+                <div>Tổng số truy cập</div><div>:</div><div>{Visitor}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: analysis -->
+
+<!-- BEGIN: google_analysis -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-70174030-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<!-- END: google_analysis -->
+</body>
+</html>
+<!-- END: main -->

@@ -1,0 +1,246 @@
+<!-- BEGIN: main -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>{SITE_TITLE}</title>
+
+    <link rel="shortcut icon" href="{BASE_URL}favicon.ico" type="image/x-icon">
+    <meta name="copyright" content="{SITE_COPYRIGHTS}" >
+    <meta name="description" content="{SITE_DESCRIPTION}">
+    <meta name="keywords" content="{SITE_KEY}">
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" >
+</head>
+<body>
+<div class="main-menu">
+    <div class="limit-width">
+        <a href="{MN_HOME}"><img src="images/home.png" alt="" align="absmiddle"></a>&nbsp;|&nbsp;<a href="{MN_INTRO}">Giới thiệu</a>&nbsp;|&nbsp;<a href="{MN_PRIVACY}">Quy định</a>&nbsp;|&nbsp;<a href="{MN_CONTACT}">Liên hệ</a>
+    </div>
+</div>
+
+<!-- BEGIN: menu_left -->
+<div class="cate-menu">
+    <div class="wrapper limit-width">
+        <div class="row">
+            <!-- BEGIN: cate -->
+            <div class="col-1-4">
+                <a href="{LINK}">{NAME} <span>({COUNT})</span></a>
+            </div>
+            <!-- END: cate -->
+        </div>
+    </div>
+</div>
+<!-- END: menu_left -->
+
+<div class="content">
+    <div class="limit-width">
+
+        <!-- BEGIN: logo_vertical -->
+        <div id="logo-vertical">
+            <div><a href="{BASE_URL}"><img src="images/ng-logo.png" alt=""></a></div>
+            <form action="{PAGE_SEARCH}" method="get">
+                <input type="text" name="q" value="{SEARCH_Q}">
+                <input type="submit" id="btnSearch" value=" " >
+            </form>
+            <!-- BEGIN: post -->
+            <div><a href="{PAGE_POST}" ><img src="images/dang-tin.png" alt=""></a></div>
+            <!-- END: post -->
+        </div>
+        <!-- END: logo_vertical -->
+
+        <!-- BEGIN: logo_detail -->
+        <div id="logo-horizontal">
+            <div class="logo"><a href="{BASE_URL}"><img src="images/ng-logo-s.png" alt=""></a></div>
+
+            <div class="detail_search">
+                <form action="{PAGE_SEARCH}" method="get">
+                    <input type="text" name="q" value="{SEARCH_Q}">
+                    <input type="submit" id="btnSearch" value=" " >
+                </form>
+                <div id="dangTin"><a href="{PAGE_POST}" ><img src="images/dang-tin.png" alt=""></a></div>
+            </div>
+        </div>
+        <!-- END: logo_detail -->
+
+        <!-- BEGIN: news -->
+        <div class="cate">
+            {DETAIL}
+        </div>
+        <!-- END: news -->
+
+        <!-- BEGIN: search -->
+        <table class="cate search" width="100%" cellspacing="0">
+            <tr>
+                <td width="35"></td>
+
+                <!-- BEGIN: detail -->
+                <td colspan="3" style="padding-right:0px;">
+                    <div class="news-report">
+                        {CATE_NAME}: <span>{CATE_COUNT}</span>
+                        <script type="text/javascript">
+                            function filterWithCate(obj)
+                            {
+                                var url = "{SEARCH_CATE_URL}";
+                                url = url.replace("SELECTCATE", obj.value);
+
+                                location.href = url;
+                            }
+                            function filterPlace(obj)
+                            {
+                                var url = "{SEARCH_PLACE_URL}";
+                                url = url.replace("SELECTPLACE", obj.value);
+
+                                location.href = url;
+                            }
+                        </script>
+                        <select style="float: right; width: 150px; font-size: 17px; padding: 3px; margin-left: 5px;"  onchange="filterPlace(this);">
+                            <option value="">Nơi giao dịch</option>
+                            {PLACE_SELECT}
+                        </select>
+                        <select style="float: right; width: 300px; font-size: 17px; padding: 3px;" onchange="filterWithCate(this);">
+                            <option value="">Tất cả</option>
+                            {CATEGORY_SELECT}
+                        </select>
+
+                    </div>
+                </td>
+                <!-- END: detail -->
+            </tr>
+            <!-- BEGIN: row -->
+            <tr class="no-border">
+                <td><strong>{STT}</strong></td>
+                <td><a href="{LINK}">{TITLE}</a></td>
+                <td width="100">{TIME}</td>
+                <td width="100" align="right">{PLACE}</td>
+            </tr>
+
+            <tr class="border-bottom">
+                <td></td>
+                <td>{DETAIL}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <!-- END: row -->
+        </table>
+
+        <!-- BEGIN: paging -->
+        <div class="paging">{PAGING_CONTENT}</div>
+        <!-- END: paging -->
+
+        <!-- END: search -->
+
+        <!-- BEGIN: cate -->
+        <table class="cate" width="100%" cellspacing="0">
+            <tr class="tin-dang">
+                <td width="35"></td>
+
+                <!-- BEGIN: report -->
+                <td>
+                    <div class="news-report">
+                        Tin đã đăng: <span>{REPORT_COUNT}</span>
+                    </div>
+                </td>
+                <!-- END: report -->
+
+                <!-- BEGIN: detail -->
+                <td>
+                    <div class="news-report">
+                        {CATE_NAME}: <span>{CATE_COUNT}</span>
+                    </div>
+                </td>
+                <!-- END: detail -->
+
+                <td width="100"></td>
+                <td width="112">
+                    <div style="position: relative; width: 10px;">
+
+                        <select id="cityFilter" name="cityFilter" onchange="filter(this);">
+                            <option value="">Nơi giao dịch</option>
+                            {PLACE_SELECT}
+                        </select>
+                    </div>
+                    <script type="text/javascript">
+                        function filterSubmit()
+                        {
+                            document.getElementById('filterSearch').submit();
+                        }
+                        function filter(me){
+                            var url = "{LINK_FILTER}";
+                            var ext = "{STUFF}";
+                            url = url.replace(ext, "/" + me.value + ext)
+                            location.href = url;
+                        }
+                    </script>
+                </td>
+            </tr>
+            <!-- BEGIN: row -->
+            <tr {CLASS_SEARCH}>
+            <td><strong>{STT}</strong></td>
+            <td><a href="{LINK}">{TITLE}</a>{DETAIL}</td>
+            <td>{TIME}</td>
+            <td align="right">{PLACE}</td>
+            </tr>
+            <!-- END: row -->
+        </table>
+
+        <!-- BEGIN: paging -->
+        <div class="paging">{PAGING_CONTENT}</div>
+        <!-- END: paging -->
+
+        <!-- END: cate -->
+
+        <!-- BEGIN: not_found -->
+        <div class="not-found">
+            <p><h4>Bản tin mà quý khách vừa truy cập không tồn tại hoặc do các nguyên nhân sau:</h4></p>
+            <ul>
+                <li>
+                    Có thể tin đăng đã quá lâu chưa được cập nhật, vui lòng xem <a href="{CATE_LINK}">tin cùng danh mục</a>.
+                </li>
+                <li>
+                    Tin đăng có thể vi phạm vào một trong các điều khoản nên bị khóa, vui lòng xem <a href='{MN_PRIVACY}'>quy định đăng tin</a>.
+                </li>
+                <li>
+                    Hoặc do hệ thống có sự cố, vui lòng <a href='{MN_CONTACT}'>liên hệ với chúng tôi</a>.
+                </li>
+                {OTHER_LINK}
+            </ul>
+        </div>
+        <!-- END: not_found -->
+    </div>
+</div>
+
+<!-- BEGIN: analysis -->
+<div class="footer">
+    <div class="footer-container limit-width">
+        <div class="footer-right">
+            <div class="view-day">
+                <div>Truy cập trong ngày</div><div>:</div><div>{Visitor_day}</div>
+            </div>
+            <div class="view-month">
+                <div>Truy cập trong tháng</div><div>:</div><div>{Visitor_month}</div>
+            </div>
+            <div class="view-total">
+                <div>Tổng số truy cập</div><div>:</div><div>{Visitor}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: analysis -->
+
+<!-- BEGIN: google_analysis -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-70174030-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<!-- END: google_analysis -->
+</body>
+</html>
+<!-- END: main -->

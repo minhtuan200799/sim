@@ -1,2 +1,25 @@
-# Add any directories, files, or patterns you don't want to be tracked by version control
-.idea
+*.idea
+.DS_Store
+
+logs/
+cache/
+data/
+stats
+
+public/captcha/*
+!public/captcha/index.html
+
+public/phones/*
+!public/phones/index.html
+
+public/uploads/Config/*
+!public/uploads/Config/index.html
+
+public/uploads/Content/*
+!public/uploads/Content/index.html
+
+public/uploads/Slide/*
+!public/uploads/Slide/index.html
+
+*/config/category.php
+*/config/mapping.php
