@@ -1,0 +1,14 @@
+{
+  "name": "ecart",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "node-sass": "^4.5.2",
+    "npm-run-all": "^4.0.2"
+  },
+  "scripts": {
+    "build-css": "node-sass public/skin/skn01/css/ -o public/skin/skn01/css/",
+    "watch-css": "npm run build-css && node-sass public/skin/skn01/css/ -o public/skin/skn01/css/ --watch --recursive",
+    "start": "npm-run-all -p watch-css"
+  }
+}
