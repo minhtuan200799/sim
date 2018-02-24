@@ -16,24 +16,68 @@
 </head>
 <body>
 <div id="header" class="container"><div class="center">
-    <div class="logo">
-        <img src="images/logo.png" alt="">
-    </div>
+    <div class="header-left">
+        <div class="logo">
+            <a href="{BASE_URL}"><img src="images/logo.png" alt=""></a>
+        </div>
 
-    <div class="search-ct">
-        <form action="{BASE_URL}search" method="get" >
-            <div class="search">
-                <input type="text" name="q" placeholder="Tìm kiếm" value="">
+        <div class="search-ct">
+            <form action="{BASE_URL}search" method="get" >
+                <div class="search">
+                    <input type="text" name="q" placeholder="Tìm kiếm" value="">
 
-                <button class="btn-search" type="submit" name="b" value="1"><i class="fas fa-search"></i></button>
-            </div>
+                    <button class="btn-search" type="submit" name="b" value="1"><i class="fas fa-search"></i></button>
+                </div>
 
-        </form>
+            </form>
+        </div>
     </div>
 
     <ul class="account">
-        <li><i class="fas fa-user"></i> Duc Chanh</li>
-        <li><i class="fas fa-sort-down"></i></li>
+        <li class="account-info active">
+            <div><a href="{BASE_URL}"><img class="avatar" src="https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-1/c28.20.245.245/s160x160/377051_249996605050309_1374588053_n.jpg?oh=7609f521a220f56635666331161440f9&oe=5B4AA018" alt=""></a></div>
+            <div class="name"><a href="{BASE_URL}">Duc Chanh</a></div>
+        </li>
+
+        <li class="account-friends ">
+            <i class="fas fa-users"></i>
+
+            <div class="header-popup hide">
+                dinamic menu here
+                dinamic menu here
+                <div>dinamic menu here</div>
+            </div>
+        </li>
+
+        <li class="account-message ">
+            <i class="fab fa-facebook-messenger"></i>
+
+            <div class="header-popup hide">
+                dinamic menu here
+                dinamic menu here
+                <div>dinamic menu here</div>
+            </div>
+        </li>
+
+        <li class="account-cart ">
+            <i class="fas fa-shopping-cart"></i>
+
+            <div class="header-popup hide">
+                dinamic menu here
+                dinamic menu here
+                <div>dinamic menu here</div>
+            </div>
+        </li>
+
+        <li class="account-more ">
+            <i class="fas fa-sort-down"></i>
+
+            <div class="header-popup hide">
+                dinamic menu here
+                dinamic menu here
+                <div>dinamic menu here</div>
+            </div>
+        </li>
     </ul>
 </div></div>
 
