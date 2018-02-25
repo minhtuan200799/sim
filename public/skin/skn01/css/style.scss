@@ -284,10 +284,19 @@ input, textarea, select, button {
   color: $background-color
 }
 .direct li div.direct-poup {
-  display: none;
+  //display: none;
+  visibility: hidden;
+  opacity:0;
+  transition-property:opacity;
+  transition-duration: 0.2s;
 }
 .direct li:hover div.direct-poup {
-  display: block;
+  //display: block;
+  visibility:visible;
+
+  opacity:1;
+  transition-property:opacity;
+  transition-duration: 0.8s;
 }
 .direct li.active a, .direct li.active i {
   text-decoration: none;
