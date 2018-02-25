@@ -254,8 +254,7 @@ input, textarea, select, button {
   justify-content: flex-start;
 }
 .direct li {
-  margin: 0 5px;
-  padding: 2px 5px;
+  padding: 2px 0;
   display: flex;
   border-radius: $bdRadius;
   overflow: hidden;
@@ -264,16 +263,27 @@ input, textarea, select, button {
   color: $input-color;
   flex-wrap: nowrap;
 }
-.direct li:first-child {
-  margin-left: 0;
-  padding-left: 0;
+.direct li i {
+  width: 22px;
+  text-align: center;
+}
+.direct li i.e-fun {
+  text-align: left;
+}
+.direct li i.fa-caret-right {
+  display: block !important;
+}
+.direct li i.fa-caret-down {
+  display: none !important;
 }
 .direct li:hover {
-  margin: 0 5px;
   background-color: $primary-color;
 }
-.direct li:first-child:hover {
-  margin-left: 0;
+.direct li:hover i.fa-caret-right {
+  display: none !important;
+}
+.direct li:hover i.fa-caret-down {
+  display: block !important;
 }
 .direct li:hover a, .direct li:hover i {
   text-decoration: none;
