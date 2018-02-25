@@ -10,6 +10,8 @@ $input-color: #1d2129;
 $border-color: #cccccc;
 $border-color-fc: #a8a8a8;
 $background-color: white;
+$eColor: #2fbcd0;
+$bdRadius: 2px;
 
 body {
   font-family: $font;
@@ -61,7 +63,7 @@ input, textarea, select, button {
 .logo a img {
   height: 30px;
   background: white;
-  border-radius: 3px;
+  border-radius: $bdRadius;
 }
 .search-ct {
   display: flex;
@@ -76,7 +78,7 @@ input, textarea, select, button {
   width: 100%;
   height: 26px;
   background: $background-color;
-  border-radius: 2px;
+  border-radius: $bdRadius;
   border: 1px solid $border-color;
   align-items: center;
   justify-content: space-between;
@@ -95,7 +97,7 @@ input, textarea, select, button {
   width: 45px;
   height: 100%;
   padding: 0 16px;
-  border-radius: 0 2px 2px 0;
+  border-radius: 0 $bdRadius $bdRadius 0;
   border: none;
   background-color: #f6f7f9;
   text-align: center;
@@ -125,7 +127,7 @@ input, textarea, select, button {
   margin: 0 5px;
   padding: 2px 5px;
   display: flex;
-  border-radius: 5px;
+  border-radius: $bdRadius;
   overflow: hidden;
   justify-content: center;
   align-items: center;
@@ -161,15 +163,39 @@ input, textarea, select, button {
   i {
     font-size: 20px;
   }
+
+  .header-popup i {
+    position: absolute;
+    top: -13px;
+    right: 128px;
+    font-size: 21px;
+    color: $eColor !important;
+  }
 }
 .account-message {
   i {
     font-size: 21px;
   }
+
+  .header-popup i {
+    position: absolute;
+    top: -13px;
+    right: 85px;
+    font-size: 21px;
+    color: $eColor !important;
+  }
 }
 .account-cart {
   i {
     font-size: 18px;
+  }
+
+  .header-popup i {
+    position: absolute;
+    top: -13px;
+    right: 45px;
+    font-size: 21px;
+    color: $eColor !important;
   }
 }
 
@@ -179,6 +205,14 @@ input, textarea, select, button {
   }
 
   padding-bottom: 10px !important;
+
+  .header-popup i {
+    position: absolute;
+    top: -13px;
+    right: 10px;
+    font-size: 21px;
+    color: $eColor !important;
+  }
 }
 
 .header-popup {
@@ -189,7 +223,8 @@ input, textarea, select, button {
   width: 300px;
   height: 400px;
   z-index: 1000;
-  background-color: #dc2323;
+  background-color: $eColor;
+  border-radius: $bdRadius;
 }
 
 .show {
@@ -197,4 +232,54 @@ input, textarea, select, button {
 }
 .hide {
   display: none;
+}
+
+#direct {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 0;
+  justify-content: flex-start;
+}
+.e-line {
+  display: flex;
+  width: 100%;
+  height: 2px;
+  border: none;
+  background-color: $eColor;
+}
+.direct {
+  display: flex;
+  list-style: none;
+  width: 50%;
+  justify-content: flex-start;
+}
+.direct li {
+  margin: 0 5px;
+  padding: 2px 5px;
+  display: flex;
+  border-radius: $bdRadius;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  color: $input-color;
+  flex-wrap: nowrap;
+}
+.direct li:first-child {
+  margin-left: 0;
+  padding-left: 0;
+}
+.direct li:hover {
+  margin: 0 5px;
+  background-color: $primary-color;
+}
+.direct li:first-child:hover {
+  margin-left: 0;
+}
+.direct li:hover a, .direct li:hover i {
+  text-decoration: none;
+  color: $background-color
+}
+.direct li.active a, .direct li.active i {
+  text-decoration: none;
+  color: $background-color
 }
