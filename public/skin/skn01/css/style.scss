@@ -289,7 +289,50 @@ input, textarea, select, button {
   text-decoration: none;
   color: $background-color
 }
+.direct li div.direct-poup {
+  display: none;
+}
+.direct li:hover div.direct-poup {
+  display: block;
+}
 .direct li.active a, .direct li.active i {
   text-decoration: none;
   color: $background-color
+}
+.direct-poup {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  display: block;
+  z-index: 1000;
+}
+.dct {
+  background-color: $primary-color;
+  border-radius: $bdRadius;
+  margin-top: 8px;
+  width: 300px;
+  height: 400px;
+}
+.d-func {
+
+  .direct-poup i.fa-caret-up {
+    position: absolute;
+    top: -5px;
+    left: 15px;
+    font-size: 21px;
+    color: $primary-color !important;
+  }
+}
+.d-cate {
+
+  .direct-poup i.fa-caret-up {
+    position: absolute;
+    top: -5px;
+    left: 113px;
+    font-size: 21px;
+    color: $primary-color !important;
+  }
+}
+.d-product {
+
 }
