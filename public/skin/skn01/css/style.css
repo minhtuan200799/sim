@@ -152,35 +152,30 @@ a:active {
   display: flex;
   margin: 5px; }
 
+.header-popup i {
+  position: absolute;
+  top: -13px;
+  right: 45px;
+  font-size: 21px;
+  color: #e2e2e2 !important; }
+
 .account-friends i {
   font-size: 20px; }
 
 .account-friends .header-popup i {
-  position: absolute;
-  top: -13px;
-  right: 128px;
-  font-size: 21px;
-  color: #2fbcd0 !important; }
+  right: 128px; }
 
 .account-message i {
   font-size: 21px; }
 
 .account-message .header-popup i {
-  position: absolute;
-  top: -13px;
-  right: 85px;
-  font-size: 21px;
-  color: #2fbcd0 !important; }
+  right: 85px; }
 
 .account-cart i {
   font-size: 18px; }
 
 .account-cart .header-popup i {
-  position: absolute;
-  top: -13px;
-  right: 45px;
-  font-size: 21px;
-  color: #2fbcd0 !important; }
+  right: 45px; }
 
 .account-more {
   padding-bottom: 10px !important; }
@@ -189,11 +184,7 @@ a:active {
   font-size: 22px; }
 
 .account-more .header-popup i {
-  position: absolute;
-  top: -13px;
-  right: 10px;
-  font-size: 21px;
-  color: #2fbcd0 !important; }
+  right: 10px; }
 
 .header-popup {
   position: absolute;
@@ -203,8 +194,31 @@ a:active {
   width: 300px;
   height: 400px;
   z-index: 1000;
-  background-color: #2fbcd0;
+  background-color: #e2e2e2;
   border-radius: 2px; }
+
+.act {
+  border-radius: 2px;
+  margin-top: 9px;
+  padding: 10px 0 5px 0; }
+
+.act li {
+  justify-content: flex-start;
+  margin: 1px 0;
+  padding: 8px 20px;
+  display: block;
+  border-radius: 2px;
+  overflow: hidden;
+  align-items: center;
+  color: #1d2129;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid #cccccc; }
+
+.account .act li a {
+  color: #1d2129; }
+
+.account .act li:hover {
+  background: #DADADA; }
 
 .show {
   display: block; }
