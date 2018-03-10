@@ -15,6 +15,17 @@ input, textarea, select, button {
   outline: none;
   color: #1d2129; }
 
+a {
+  text-decoration: none;
+  color: #1d2129; }
+
+a:hover {
+  text-decoration: none;
+  color: #2fbcd0; }
+
+a:active {
+  color: #4155b2; }
+
 .container, .center {
   display: flex; }
 
@@ -122,7 +133,7 @@ input, textarea, select, button {
 
 .account li:hover {
   margin: 0 5px;
-  background-color: #5079b2; }
+  background-color: rgba(80, 121, 178, 0.7); }
 
 .account li:hover a, .account li:hover i {
   text-decoration: none;
@@ -210,7 +221,7 @@ input, textarea, select, button {
 .direct {
   display: flex;
   list-style: none;
-  width: 50%;
+  width: 100%;
   justify-content: flex-start; }
 
 .direct li {
@@ -237,7 +248,7 @@ input, textarea, select, button {
   display: none !important; }
 
 .direct li:hover {
-  background-color: #4155b2; }
+  background-color: rgba(226, 226, 226, 0.7); }
 
 .direct li:hover i.fa-caret-right {
   display: none !important; }
@@ -247,7 +258,7 @@ input, textarea, select, button {
 
 .direct li:hover a, .direct li:hover i {
   text-decoration: none;
-  color: white; }
+  color: #1d2129; }
 
 .direct li div.direct-poup {
   visibility: hidden;
@@ -261,6 +272,10 @@ input, textarea, select, button {
   transition-property: opacity;
   transition-duration: 0.8s; }
 
+.direct li div.show {
+  visibility: visible;
+  opacity: 1; }
+
 .direct li.active a, .direct li.active i {
   text-decoration: none;
   color: white; }
@@ -273,22 +288,38 @@ input, textarea, select, button {
   z-index: 1000; }
 
 .dct {
-  background-color: #4155b2;
+  background-color: #e2e2e2;
   border-radius: 2px;
-  margin-top: 8px;
-  width: 300px;
-  height: 400px; }
+  margin-top: 9px;
+  padding: 10px 0 5px 0; }
 
-.d-func .direct-poup i.fa-caret-up {
+.dct li {
+  margin: 1px 0;
+  padding: 8px 20px;
+  display: block;
+  border-radius: 2px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  color: #1d2129;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid #cccccc; }
+
+.dct li:last-child {
+  border-bottom: none; }
+
+.dct li:hover {
+  background: #DADADA; }
+
+.direct-poup i.fa-caret-up {
   position: absolute;
   top: -5px;
   left: 15px;
   font-size: 21px;
-  color: #4155b2 !important; }
+  color: #e2e2e2 !important; }
+
+.d-func .direct-poup i.fa-caret-up {
+  left: 15px; }
 
 .d-cate .direct-poup i.fa-caret-up {
-  position: absolute;
-  top: -5px;
-  left: 113px;
-  font-size: 21px;
-  color: #4155b2 !important; }
+  left: 113px; }
