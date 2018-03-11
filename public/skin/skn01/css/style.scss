@@ -63,7 +63,7 @@ a:active {
 #header {
   background: $primary-color;
   height: 42px;
-  border-bottom: 2px solid $eColor;
+  box-shadow: 0 2px 2px 0 $bdColorFocus;
 }
 .header-left {
   display: flex;
@@ -179,7 +179,7 @@ a:active {
   position: absolute;
   top: -13px;
   right: 45px;
-  font-size: 21px;
+  font-size: 21px !important;
   color: $bgMain2 !important;
 }
 
@@ -228,8 +228,6 @@ a:active {
   right: 0;
   display: block;
   top: 50px;
-  width: 300px;
-  height: 400px;
   z-index: 1000;
   background-color: $bgMain2;
   border-radius: $bdRadius;
@@ -237,12 +235,12 @@ a:active {
 .act {
   border-radius: $bdRadius;
   margin-top: 9px;
-  padding: 10px 0 5px 0;
+  padding: 10px 0 20px 0;
 }
 .act li {
   justify-content: flex-start;
-  margin: 1px 0;
-  padding: 8px 20px;
+  margin: 1px 0 !important;
+  padding: 8px 30px 8px 20px;
   display: block;
   border-radius: 2px;
   overflow: hidden;
@@ -254,8 +252,9 @@ a:active {
 .account .act li a {
   color: $txtColor;
 }
-.account .act li:hover {
+.account .act li:hover, .act li:hover {
   background: $bgMain3;
+  margin: 1px 0 !important;
 }
 
 .show {
@@ -314,14 +313,12 @@ a:active {
   color: $txtColor
 }
 .direct li div.direct-poup {
-  //display: none;
   visibility: hidden;
   opacity:0;
   transition-property:opacity;
   transition-duration: 0.2s;
 }
 .direct li:hover div.direct-poup {
-  //display: block;
   visibility:visible;
 
   opacity:1;
@@ -370,7 +367,7 @@ a:active {
 }
 .direct-poup i.fa-caret-up {
   position: absolute;
-  top: -5px;
+  top: -4px;
   left: 15px;
   font-size: 21px;
   color: $bgMain2 !important;

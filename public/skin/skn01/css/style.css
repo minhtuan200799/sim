@@ -45,7 +45,7 @@ a:active {
 #header {
   background: #4155b2;
   height: 42px;
-  border-bottom: 2px solid #2fbcd0; }
+  box-shadow: 0 2px 2px 0 #a8a8a8; }
 
 .header-left {
   display: flex;
@@ -156,7 +156,7 @@ a:active {
   position: absolute;
   top: -13px;
   right: 45px;
-  font-size: 21px;
+  font-size: 21px !important;
   color: #e2e2e2 !important; }
 
 .account-friends i {
@@ -191,8 +191,6 @@ a:active {
   right: 0;
   display: block;
   top: 50px;
-  width: 300px;
-  height: 400px;
   z-index: 1000;
   background-color: #e2e2e2;
   border-radius: 2px; }
@@ -200,12 +198,12 @@ a:active {
 .act {
   border-radius: 2px;
   margin-top: 9px;
-  padding: 10px 0 5px 0; }
+  padding: 10px 0 20px 0; }
 
 .act li {
   justify-content: flex-start;
-  margin: 1px 0;
-  padding: 8px 20px;
+  margin: 1px 0 !important;
+  padding: 8px 30px 8px 20px;
   display: block;
   border-radius: 2px;
   overflow: hidden;
@@ -217,8 +215,9 @@ a:active {
 .account .act li a {
   color: #1d2129; }
 
-.account .act li:hover {
-  background: #DADADA; }
+.account .act li:hover, .act li:hover {
+  background: #DADADA;
+  margin: 1px 0 !important; }
 
 .show {
   display: block; }
@@ -327,7 +326,7 @@ a:active {
 
 .direct-poup i.fa-caret-up {
   position: absolute;
-  top: -5px;
+  top: -4px;
   left: 15px;
   font-size: 21px;
   color: #e2e2e2 !important; }
