@@ -149,10 +149,18 @@ a:active {
   align-items: center;
   color: $txtColor;
   flex-wrap: nowrap;
+
+  .header-popup {
+    display: none;
+  }
 }
 .account li:hover {
   margin: 0 5px;
   background-color: $bgHover;
+
+  .header-popup {
+    display: block;
+  }
 }
 .account li:hover a, .account li:hover i {
   text-decoration: none;

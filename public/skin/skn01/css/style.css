@@ -131,9 +131,15 @@ a:active {
   color: #1d2129;
   flex-wrap: nowrap; }
 
+.account li .header-popup {
+  display: none; }
+
 .account li:hover {
   margin: 0 5px;
   background-color: rgba(80, 121, 178, 0.7); }
+
+.account li:hover .header-popup {
+  display: block; }
 
 .account li:hover a, .account li:hover i {
   text-decoration: none;
