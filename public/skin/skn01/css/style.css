@@ -342,3 +342,22 @@ a:active {
 
 .d-cate .direct-poup i.fa-caret-up {
   left: 113px; }
+
+.stories {
+  flex-flow: row wrap;
+  justify-content: unset;
+  width: calc(100% + 20px);
+  max-width: 1220px; }
+
+.store {
+  margin: 0 10px 20px 10px;
+  display: flex;
+  width: calc(20% - 22px);
+  height: 200px;
+  border-radius: 2px;
+  border: 1px solid #a8a8a8;
+  box-shadow: 0 2px 2px 0 #a8a8a8; }
+
+@media only screen and (max-width: 1024px) {
+  .store {
+    width: calc(25% - 22px); } }
