@@ -231,7 +231,7 @@ a:active {
 .hide {
   display: none; }
 
-#direct {
+.directory {
   display: flex;
   flex-direction: row;
   padding: 5px 0;
