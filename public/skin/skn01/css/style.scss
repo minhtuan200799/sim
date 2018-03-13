@@ -10,6 +10,7 @@ $txtColor: #1d2129;
 $bdColor: #cccccc;
 $bdColorFocus: #a8a8a8;
 $bgMain: white;
+$bgBody: #f4f4f4;
 $bgMain2: rgb(226, 226, 226);
 $bgMain3: #DADADA;
 $bgHover: rgba(80, 121, 178, 0.7);
@@ -22,6 +23,7 @@ body {
   color: $txtColor;
   min-width: 768px;
   min-height: 600px;
+  background-color: $bgBody;
 }
 
 input, textarea, select, button {
@@ -283,6 +285,7 @@ a:active {
   list-style: none;
   width: 100%;
   justify-content: flex-start;
+  margin-bottom: 8px;
 }
 .direct li {
   padding: 2px 0;
@@ -409,6 +412,7 @@ a:active {
   border-radius: $bdRadius;
   border: 1px solid $bdColorFocus;
   box-shadow: 0 2px 2px 0 $bdColorFocus;
+  background-color: $bgMain;
 }
 @media only screen and (max-width: 1024px) {
   .store {
