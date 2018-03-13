@@ -5,7 +5,7 @@
 }
 
 $font: 'Helvetica Neue', Helvetica, Arial, sans-serif;;
-$primary-color: #4155b2;
+$bgPrimary: #4155b2;
 $txtColor: #1d2129;
 $bdColor: #cccccc;
 $bdColorFocus: #a8a8a8;
@@ -42,7 +42,7 @@ a:hover {
   color: $eColor;
 }
 a:active {
-  color: $primary-color;
+  color: $bgPrimary;
 }
 
 .container, .center {
@@ -63,7 +63,7 @@ a:active {
 }
 
 #header {
-  background: $primary-color;
+  background: $bgPrimary;
   height: 42px;
   box-shadow: 0 2px 2px 0 $bdColorFocus;
 }
@@ -418,4 +418,11 @@ a:active {
   .store {
     width: calc(25% - 22px);
   }
+}
+#link {
+  background-color: $bgPrimary;
+}
+.lk-block {
+  display: flex;
+  flex-direction: column;
 }

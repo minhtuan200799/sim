@@ -364,3 +364,10 @@ a:active {
 @media only screen and (max-width: 1024px) {
   .store {
     width: calc(25% - 22px); } }
+
+#link {
+  background-color: #4155b2; }
+
+.lk-block {
+  display: flex;
+  flex-direction: column; }
