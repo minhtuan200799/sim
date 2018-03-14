@@ -1,10 +1,7 @@
 @charset "utf-8";
-* {
-  padding: 0;
-  margin: 0;
-}
 
-$font: 'Helvetica Neue', Helvetica, Arial, sans-serif;;
+$font: Helvetica, Arial, sans-serif;
+$fontNative: inherit;
 $bgPrimary: #4155b2;
 $txtColor: #1d2129;
 $bdColor: #cccccc;
@@ -16,19 +13,26 @@ $bgMain3: #DADADA;
 $bgHover: rgba(80, 121, 178, 0.7);
 $bgHover2: rgba(226, 226, 226, 0.7);
 $eColor: #2fbcd0;
+$fColor: #d87a08;
+$wColor: white;
 $bdRadius: 2px;
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
-  font-family: $font;
-  color: $txtColor;
   min-width: 768px;
   min-height: 600px;
   background-color: $bgBody;
 }
 
-input, textarea, select, button {
+body, input, textarea, select, button {
   font-family: $font;
   font-size: 14px;
+  font-weight: normal;
+  letter-spacing: -0.01em;
   text-shadow: none;
   outline: none;
   color: $txtColor;
@@ -323,13 +327,13 @@ a:active {
   text-decoration: none;
   color: $txtColor
 }
-.direct li div.direct-poup {
+.direct li div.direct-popup {
   visibility: hidden;
   opacity:0;
   transition-property:opacity;
   transition-duration: 0.2s;
 }
-.direct li:hover div.direct-poup {
+.direct li:hover div.direct-popup {
   visibility:visible;
 
   opacity:1;
@@ -345,7 +349,7 @@ a:active {
   text-decoration: none;
   color: $bgMain
 }
-.direct-poup {
+.direct-popup {
   position: absolute;
   top: 24px;
   left: 0;
@@ -376,7 +380,7 @@ a:active {
 .dct li:hover {
   background: $bgMain3;
 }
-.direct-poup i.fa-caret-up {
+.direct-popup i.fa-caret-up {
   position: absolute;
   top: -4px;
   left: 15px;
@@ -385,13 +389,13 @@ a:active {
 }
 .d-func {
 
-  .direct-poup i.fa-caret-up {
+  .direct-popup i.fa-caret-up {
     left: 15px;
   }
 }
 .d-cate {
 
-  .direct-poup i.fa-caret-up {
+  .direct-popup i.fa-caret-up {
     left: 113px;
   }
 }
@@ -420,9 +424,48 @@ a:active {
   }
 }
 #link {
-  background-color: $bgPrimary;
+  background-color: $bgMain2;
 }
 .lk-block {
   display: flex;
   flex-direction: column;
+
+  div {
+    margin: 5px 0;
+  }
+
+  div:first-child {
+    color: $fColor;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid;
+  }
+  div:last-child {
+    margin-bottom: 20px;
+  }
+
+  a {
+    color: $txtColor;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+.lk-like div {
+  display: flex;
+  justify-content: flex-end;
+}
+#atstbx a:last-child {
+  margin-right: 0 !important;
+}
+#copyright {
+  background-color: $bgPrimary;
+  color: $wColor;
+  height: 40px;
+}
+.copyright {
+  width: 100%;
+  text-align: center;
 }
