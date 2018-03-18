@@ -11,11 +11,11 @@
 /***********************************************************************/
 
 //**********Định nghĩa các thành phần của web*****************//
-$config["site_copy_right"]      = "© 2018 ECart. All rights reserved.";
+$config["site_copy_right"]      = "© 2018 eCart. All rights reserved.";
 $config["site_description"]     = "";
 $config["site_email"]   = "info@ecart.tv";
 $config["site_keyword"] = "";
-$config["site_title"]   = "ECart";
+$config["site_title"]   = "eCart";
 $config["sys_cache_SoGiay"]     = "0";
 $config["sys_extensions"]       = ".html";
 $config["sys_home_page"]        = "1";

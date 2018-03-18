@@ -5,6 +5,7 @@ $fontNative: inherit;
 $bgPrimary: #4155b2;
 $txtColor: #1d2129;
 $bdColor: #cccccc;
+$bdStore: #ecebeb;
 $bdColorFocus: #a8a8a8;
 $bgMain: white;
 $bgBody: #f4f4f4;
@@ -412,12 +413,39 @@ a:active {
   margin: 0 10px 20px 10px;
   display: flex;
   width: calc(20% - 22px);
-  height: 200px;
-  border-radius: $bdRadius;
-  border: 1px solid $bdColorFocus;
-  box-shadow: 0 2px 2px 0 $bdColorFocus;
+  height: 270px;
+  border-radius: 3* $bdRadius;
+  box-shadow: 0 3px 6px 0 $bdStore;
   background-color: $bgMain;
+  flex-direction: column;
+  justify-content: space-between;
 }
+.st-img img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-top-left-radius: 3* $bdRadius;
+  border-top-right-radius: 3* $bdRadius;
+}
+.st-name {
+  font-size: 16px;
+  text-align: left;
+  height: 60px;
+  margin-top: 5px;
+}
+.st-stats {
+  border-top: 1px solid $bdStore;
+  border-bottom-left-radius: 3* $bdRadius;
+  border-bottom-right-radius: 3* $bdRadius;
+  display: flex;
+  width: 100%;
+  height: 35px;
+  background-color: #fafafa;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
 @media only screen and (max-width: 1024px) {
   .store {
     width: calc(25% - 22px);
