@@ -3,6 +3,7 @@
 $font: Helvetica, Arial, sans-serif;
 $fontNative: inherit;
 $bgPrimary: #4155b2;
+$txtPrimary: #4155b2;
 $txtColor: #1d2129;
 $bdColor: #cccccc;
 $bdStore: #ecebeb;
@@ -283,12 +284,16 @@ a:active {
   display: flex;
   flex-direction: row;
   padding: 5px 0;
+  font-size: 18px;
   justify-content: flex-start;
+}
+.directory a, .directory i {
+  color: $txtPrimary;
 }
 .direct {
   display: flex;
   list-style: none;
-  width: 100%;
+  width: 70%;
   justify-content: flex-start;
   margin-bottom: 8px;
 }
@@ -403,17 +408,38 @@ a:active {
 .d-product {
 
 }
-.stories {
+.more {
+  display: flex;
+  width: calc(30% - 10px);
+  justify-content: flex-end;
+}
+.more a {
+  text-decoration: underline;
+  font-size: 16px;
+}
+.line {
+  background-color: $bdColor;
+  height: 1px;
+  display: flex;
+  width: calc(100% - 10px);
+}
+.stories, .products {
   flex-flow: row wrap;
   justify-content: unset;
   width: calc(100% + 20px);
   max-width: 1220px;
 }
-.store {
-  margin: 0 10px 20px 10px;
-  display: flex;
+.stories .block {
+  width: calc(25% - 22px);
+  height: 250px;
+}
+.products .block {
   width: calc(20% - 22px);
-  height: 270px;
+  height: 230px;
+}
+.block {
+  margin: 10px 10px 30px 10px;
+  display: flex;
   border-radius: 3* $bdRadius;
   box-shadow: 0 3px 6px 0 $bdStore;
   background-color: $bgMain;
@@ -422,16 +448,35 @@ a:active {
 }
 .st-img img {
   width: 100%;
-  height: 190px;
+  height: 150px;
   object-fit: cover;
   border-top-left-radius: 3* $bdRadius;
   border-top-right-radius: 3* $bdRadius;
 }
 .st-name {
+  display: flex;
+  width: 100%;
+  margin: 5px;
+}
+.seller-avatar {
+  width: 35px;
+  height: 35px;
+  float: left;
+  border-radius: 30px;
+  overflow: hidden;
+  margin-right: 5px;
+  background: #9b9b9b;
+
+   img {
+     width: 100%;
+   }
+}
+.store-name {
+  color: $txtColor;
   font-size: 16px;
-  text-align: left;
-  height: 60px;
-  margin-top: 5px;
+}
+.user-name {
+  color: $fColor;
 }
 .st-stats {
   border-top: 1px solid $bdStore;
@@ -444,10 +489,13 @@ a:active {
   align-items: center;
   justify-content: space-around;
 }
+.block i {
+  color: $eColor;
+}
 
 
 @media only screen and (max-width: 1024px) {
-  .store {
+  .products .block {
     width: calc(25% - 22px);
   }
 }
