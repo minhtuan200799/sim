@@ -24,10 +24,10 @@ class COI extends SYSTEM
         {
             $this->cache_live = $this->conf['sys_cache_SoGiay'];
         }
-        $this->db	= new Database($this->conf['dbview']);
+//        $this->db	= new Database($this->conf['dbview']);
 
-        include_once(ROOT . DIRECTORY_SEPARATOR . WEB_PREFIX . DIRECTORY_SEPARATOR . "session".EXT);
-        $this->session	= new Session($this->db);
+//        include_once(ROOT . DIRECTORY_SEPARATOR . WEB_PREFIX . DIRECTORY_SEPARATOR . "session".EXT);
+//        $this->session	= new Session($this->db);
         //$this->session->Online();
         $this->load_module();
     }
@@ -40,42 +40,31 @@ class COI extends SYSTEM
 
         $page = segment(1);
 
-        if($page != "search") $_SESSION['SEARCHING'] = "";
-
-        if(empty($page))
+        switch($page)
         {
-            $this->home_page();
-        }else if(is_numeric($page[0]))
-        {
-            $this->other_link(true);
-        }else
-        {
-            switch($page)
-            {
-                case $this->config("page_cate") : $this->cate(); break;
-                case $this->config("page_detail") : $this->detail(); break;
+            case $this->config("page_cate") : $this->cate(); break;
+            case $this->config("page_detail") : $this->detail(); break;
 
-                case "search" : $this->search(); break;
-                case "udb" : $this->update_database(); break;
+            case "search" : $this->search(); break;
+            case "udb" : $this->update_database(); break;
 
-                case "get-phone" : $this->ajax_get_phone(); break;
-                case "get-captcha" : $this->ajax_get_captcha(); break;
+            case "get-phone" : $this->ajax_get_phone(); break;
+            case "get-captcha" : $this->ajax_get_captcha(); break;
 
-                case "trang-chu" : $this->home_page(); break;
-                case "gioi-thieu"  : $this->news(2); break;
-                case "quy-dinh"  : $this->news(3); break;
-                case "lien-he"  : $this->news(1); break;
+            case "trang-chu" : $this->home_page(); break;
+            case "gioi-thieu"  : $this->news(2); break;
+            case "quy-dinh"  : $this->news(3); break;
+            case "lien-he"  : $this->news(1); break;
 
-                case "dang-tin"  : $this->post(); break;
-                case "xem-lai"  : $this->review(); break;
-                case "chi-tiet-tin-dang"  : $this->post_2(); break;
-                case "them-hinh-anh"  : $this->post_image(); break;
+            case "dang-tin"  : $this->post(); break;
+            case "xem-lai"  : $this->review(); break;
+            case "chi-tiet-tin-dang"  : $this->post_2(); break;
+            case "them-hinh-anh"  : $this->post_image(); break;
 
-                case "update-cate-count"  : $this->refresh_table(); break;
-            }
+            case "update-cate-count"  : $this->refresh_table(); break;
+
+            default: $this->home_page(); break;
         }
-
-
 
         $this->clear_data();
     }
@@ -150,9 +139,9 @@ class COI extends SYSTEM
     }
     private function site_analysis()
     {
-        $this->xtpl->assign("Visitor_day", number_format($this->session->Visitor_day(), 0, ".", "."));
-        $this->xtpl->assign("Visitor_month", number_format($this->session->Visitor_month(), 0, ".", "."));
-        $this->xtpl->assign("Visitor", number_format($this->session->Visitor(), 0, ".", "."));
+//        $this->xtpl->assign("Visitor_day", number_format($this->session->Visitor_day(), 0, ".", "."));
+//        $this->xtpl->assign("Visitor_month", number_format($this->session->Visitor_month(), 0, ".", "."));
+//        $this->xtpl->assign("Visitor", number_format($this->session->Visitor(), 0, ".", "."));
 
         $this->xtpl->parse("main.analysis");
         $this->xtpl->parse("main.google_analysis");
@@ -398,8 +387,6 @@ class COI extends SYSTEM
 
 
 
-
-
         $this->xtpl->parse("main.search");
 
 
@@ -412,84 +399,8 @@ class COI extends SYSTEM
     public  function home_page()
     {
         $this->start('index');
-        $this->menu_left();
 
-        $this->xtpl->parse("main.logo_vertical.post");
-        $this->xtpl->parse("main.logo_vertical");
 
-        $city = segment(2);
-        $current_page = segment(3);
-
-        $limit = intval($this->config("sys_paging"));
-        $city = empty($city) ? 0: $city;
-        $from = empty($current_page) ? 0: $current_page - 1;
-        $from = $from * $limit;
-
-        $w = "";
-        $w .= ($city <= 0) ? "" : "place = '$city' AND ";
-        $w = rtrim($w, "AND ");
-        $w = (strlen($w) > 2) ? "WHERE $w" : "";
-
-        $sql = "SELECT cate, detail, title, place, time FROM page_search_v01 $w ORDER BY time DESC LIMIT $from, $limit";
-        $result	= $this->db->query($sql);
-        if(!empty($result) && $this->db->numrows($result) >0)
-        {
-            $count = $from;
-            while($row = $this->db->fetchrow($result))
-            {
-                $count ++;
-
-                $title = $row['title'];
-                $title = mb_strtolower($title, 'UTF-8');
-                $title = mb_ucfirst($title);
-
-//                if($count < 10) {
-//                    $this->xtpl->assign("CLASS_SEARCH", 'class="vip"');
-//                }else{
-//                    $this->xtpl->assign("CLASS_SEARCH", '');
-//                }
-
-                $this->xtpl->assign("STT", $count);
-                $this->xtpl->assign("TITLE", $title);
-                $this->xtpl->assign("PLACE", $this->get_place($row['place']));
-                $this->xtpl->assign("TIME", date("H\hi\-d/m", $row['time']));
-                $this->xtpl->assign("LINK", site_url($this->config("page_detail") ."/" . $this->get_cate_key($row['cate']) ."/". $row['detail'], $title));
-
-                $this->xtpl->parse("main.cate.row");
-            }
-        }else
-        {
-            $this->other_link();
-            $this->xtpl->parse("main.not_found");
-            $this->show();
-            return;
-        }
-
-        $sql = "SELECT COUNT(*) AS num FROM page_search_v01 $w";
-        $result	= $this->db->query($sql);
-        if(!empty($result) && $this->db->numrows($result) >0)
-        {
-            while($row = $this->db->fetchrow($result))
-            {
-                $num_row = $row['num'];
-
-                // Paging
-                $paging = new Paging(array("url"=> "trang-chu/". $city, "current" => $current_page, "total" => intval($num_row), "perpage" => $limit));
-                $this->xtpl->assign("PAGING_CONTENT", $paging->show());
-                $this->xtpl->parse("main.cate.paging");
-
-                // Report
-                $this->xtpl->assign("REPORT_COUNT", $num_row);
-                $this->xtpl->parse("main.cate.report");
-            }
-        }
-
-        // Show city filter
-        $this->xtpl->assign("STUFF", $this->config("sys_extensions"));
-        $this->xtpl->assign("LINK_FILTER", site_url("trang-chu"));
-        $this->xtpl->assign("PLACE_SELECT", $this->get_place_select($city));
-
-        $this->xtpl->parse("main.cate");
         $this->show();
     }
     public function news($id=1)

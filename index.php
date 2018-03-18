@@ -12,6 +12,8 @@
 session_start();
 date_default_timezone_set("Asia/Saigon");
 
+$_SERVER['HTTP_HOST'] = 'localhost';
+
 if($_SERVER['HTTP_HOST'] == 'localhost')
 {
     define('BASE_URL'		, "http://localhost/ecart/");
