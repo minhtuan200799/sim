@@ -12,17 +12,9 @@
 
 //**********Định nghĩa các thành phần của web*****************//
 
-if($_SERVER['HTTP_HOST'] == "localhost")
-{
-    $config['dbview']['username']		= "nhanhgon";
-    $config['dbview']['database']		= "nhanhgon";
-    $config['dbview']['password']		= "nhanhgon";
-}else
-{
-    $config['dbview']['username']	= "raovat";
-    $config['dbview']['database']	= "raovat";
-    $config['dbview']['password']	= "raovat";
-}
+$config['dbview']['database']	= $_SERVER["DBV_DATABASE"];
+$config['dbview']['username']	= $_SERVER["DBV_USERNAME"];
+$config['dbview']['password']	= $_SERVER["DBV_PASSWORD"];
 
 $config['dbview']['hostname']	= "localhost";
 $config['dbview']['pconnect']	= TRUE;

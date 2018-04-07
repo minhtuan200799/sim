@@ -12,24 +12,13 @@
 session_start();
 date_default_timezone_set("Asia/Saigon");
 
-$_SERVER['HTTP_HOST'] = 'localhost';
-
-if($_SERVER['HTTP_HOST'] == 'localhost')
-{
-    define('BASE_URL'		, "http://localhost/ecart/");
-    error_reporting(E_ALL);
-    ini_set('display_errors', 'On');
-}else
-{
-    define('BASE_URL'		, "http://ecart.tv/");
-    error_reporting(0);
-    ini_set('display_errors', 'Off');
-}
-define('HASH_KEY'		, "H@dOx4h0sz237X83@jdw");
-define('WEB_SUBDOMAIN'	, "ecart");
-define('WEB_PREFIX'	    , "u8o9x3e");
-define('CACHE_DIR'	    , WEB_PREFIX . "/cache");
-define('WEB_OPK'	    , 122);
+// Config env
+define('BASE_URL'		, $_SERVER['BASE_URL']);
+define('HASH_KEY'		, $_SERVER['HASH_KEY']);
+define('WEB_SUBDOMAIN'	, $_SERVER['WEB_SUBDOMAIN']);
+define('WEB_PREFIX'	    , $_SERVER['WEB_PREFIX']);
+define('CACHE_DIR'	    , WEB_PREFIX . "/". $_SERVER['CACHE_DIR']);
+define('WEB_OPK'	    , $_SERVER['WEB_OPK']);
 
 // Do not change any things
 define('EXT'			, '.'.pathinfo(__FILE__, PATHINFO_EXTENSION));
